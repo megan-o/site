@@ -3,12 +3,13 @@
 }
 
 .App-logo {
-  height: 40vmin;
+  height: 30vmin;
+  border-radius: 50%;
   pointer-events: none;
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: rgb(18, 18, 18);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -22,8 +23,13 @@
   color: #61dafb;
 }
 
-.heart {
-  color: #ff0000;
+.body {
+  font-size: 16px;
+  line-height: 1.5;
+  color: white;
+  font-family: Arial, sans-serif;
+  margin-left: 70px;
+  margin-right: 70px
 }
 
 .small {
