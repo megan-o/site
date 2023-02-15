@@ -27,7 +27,7 @@ function App() {
             <a href="https://www.facebook.com/megan.siobhan.1"><img src="https://img.icons8.com/fluent/48/000000/facebook-new.png" alt="Facebook" /></a>
             <a href="https://twitter.com/beggingformegan"><img src="https://img.icons8.com/fluent/48/000000/twitter.png" alt="Twitter" /></a>
             <a href="https://www.linkedin.com/in/meganscobrien/"><img src="https://img.icons8.com/fluent/48/000000/linkedin.png" alt="LinkedIn" /></a>
-            <a href="mailto:meganscobrien@gmail.com?subject=Hello%20World&body=How%20are%20you?"><img src="https://img.icons8.com/fluent/48/000000/mail.png" alt="Email" /></a>
+            <a href="mailto:meganscobrien@gmail.com?subject=Hello%20From%20Your%20Site&body=Hi%20Megan,"><img src="https://img.icons8.com/fluent/48/000000/mail.png" alt="Email" /></a>
           </div>
         </p>
         <p className="small">2023 Megan</p>
