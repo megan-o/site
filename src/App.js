@@ -13,7 +13,7 @@ function App() {
         <Row>
           <Col>
             <img
-              src="public/obrien-megan.jpg"
+              src="obrien-megan.jpg"
               className="App-logo"
               alt="logo"
             />
