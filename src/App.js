@@ -22,7 +22,7 @@ function App() {
             <h3>Megan O'Brien</h3>
             <p>Senior Analyst - Primary Research</p>
           </Col>
-          <Col>
+          <Col sm={8}>
             <MyTabs />
           </Col>
         </Row>
