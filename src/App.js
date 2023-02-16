@@ -13,7 +13,7 @@ function App() {
         <Row>
           <Col>
             <img
-              src="https://thearf.org/wp-content/uploads/2022/12/obrien-megan.jpg"
+              src="../public/obrien-megan.jpg"
               className="App-logo"
               alt="logo"
             />
