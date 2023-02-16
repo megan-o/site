@@ -6,8 +6,8 @@ export default function Resume() {
       <br />
       <iframe
         src="https://drive.google.com/file/d/1gJVkHN9zSOGy-GdGwfKxUIAD33ucCG97/preview"
-        width="640"
-        height="720"
+        width="400"
+        height="620"
         allow="autoplay"
       ></iframe>
     </>

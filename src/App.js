@@ -29,19 +29,19 @@ function App() {
       </Container>
 
       <br />
-      <a href="https://www.linkedin.com/in/meganscobrien/">
+      <a target="_blank" href="https://www.linkedin.com/in/meganscobrien/">
         <img
           src="https://img.icons8.com/fluent/48/000000/linkedin.png"
           alt="LinkedIn"
         />
       </a>
-      <a href="mailto:meganscobrien@gmail.com?subject=Hello%20From%20Your%20Site&body=Hi%20Megan,">
+      <a target="_blank" href="mailto:meganscobrien@gmail.com?subject=Hello%20From%20Your%20Site&body=Hi%20Megan,">
         <img
           src="https://img.icons8.com/fluent/48/000000/mail.png"
           alt="Email"
         />
       </a>
-      <a href="https://twitter.com/beggingformegan">
+      <a target="_blank" href="https://twitter.com/beggingformegan">
         <img
           src="https://img.icons8.com/fluent/48/000000/twitter.png"
           alt="Twitter"
