@@ -1,3 +1,5 @@
+[![pages-build-deployment](https://github.com/megan-o/site/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/megan-o/site/actions/workflows/pages/pages-build-deployment)
+
 # My Personal Site
 
 Hi everyone!
