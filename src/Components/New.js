@@ -8,7 +8,7 @@ function New() {
   const GOOGLE_API_KEY = process.env.REACT_APP_GOOGLE_MAPS_API_KEY;
 
   useEffect(() => {
-    const total= `https://sheets.googleapis.com/v4/spreadsheets/1JMRB13DOxppDm1qFVuuja0MiOuXCXlBFBtNzarNwVzE/values/Sheet1?key=${GOOGLE_API_KEY}`
+    const total= `https://sheets.googleapis.com/v4/spreadsheets/10lIiQ8yqJFay3e6MR_6BkXJsb7Ix9W2LWKg-yuvQMQs/values/Sheet1?key=${GOOGLE_API_KEY}`
     fetch(total)
       .then((response) => response.json())
       .then((data) => {
