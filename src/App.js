@@ -20,7 +20,7 @@ function App() {
             <br />
             <br />
             <h3>Megan O'Brien</h3>
-            <p>Senior Analyst - Primary Research</p>
+            <p>Manager - Primary Research</p>
           </Col>
           <Col sm={8}>
             <MyTabs />
@@ -41,13 +41,13 @@ function App() {
           alt="Email"
         />
       </a>
-      <a target="_blank" href="https://twitter.com/beggingformegan">
+      <a target="_blank" href="https://x.com/meganscobrien">
         <img
           src="https://img.icons8.com/fluent/48/000000/twitter.png"
           alt="Twitter"
         />
       </a>
-      <p className="small">2023 Megan</p>
+      <p className="small">2025 Megan</p>
     </div>
   );
 }
