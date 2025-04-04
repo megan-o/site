@@ -1,15 +1,37 @@
 import { ListGroupItem } from 'react-bootstrap';
 
-function MyCard(items) {
+function MyCard({ items }) {
   return (
     <ListGroupItem style={{ borderBottom: '1px solid white' }}>
-      <div className="d-flex w-100 justify-content-between">
-      <small> <strong>{items.items.Date}</strong></small>
-        <h5>
-          <a href={items.items.Link} style={{ color: 'white' }} target="_blank">{items.items.Name}</a>
-        </h5>
+      <div className="d-flex align-items-center">
+        {/* Clickable icon on the left */}
+        <a href={items.Link} target="_blank" rel="noopener noreferrer">
+          <img
+            src={items.Img}
+            alt="icon"
+            style={{
+              width: '50px',
+              height: '50px',
+              marginRight: '15px'
+            }}
+          />
+        </a>
+        {/* Left aligned text content */}
+        <div style={{ textAlign: 'left' }}>
+          <h5 style={{ margin: '0' }}>
+            <a
+              href={items.Link}
+              style={{ color: 'white', textDecoration: 'none' }}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {items.Name}
+            </a>
+          </h5>
+          <small style={{ fontStyle: 'italic' }}>{items.Date}</small>
+          <p style={{ marginTop: '5px' }}>{items.Description}</p>
+        </div>
       </div>
-      <p style={{textAlign: 'left'}}>{items.items.Description}</p>
     </ListGroupItem>
   );
 }

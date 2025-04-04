@@ -7,7 +7,7 @@ import Contact from "./New"
 function MyTabs() {
   return (
     <Tabs
-      defaultActiveKey="about"
+      defaultActiveKey="contact"
       id="fill-tab-example"
       className="tabs"
       fill
