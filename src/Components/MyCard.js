@@ -3,8 +3,8 @@ import { ListGroupItem } from 'react-bootstrap';
 function MyCard({ items }) {
   return (
     <ListGroupItem style={{ borderBottom: '1px solid white' }}>
-      <div className="d-flex align-items-center">
-        {/* Clickable icon on the left */}
+      <div className="d-flex align-items-start">
+        {/* Clickable icon */}
         <a href={items.Link} target="_blank" rel="noopener noreferrer">
           <img
             src={items.Img}
@@ -16,12 +16,12 @@ function MyCard({ items }) {
             }}
           />
         </a>
-        {/* Left aligned text content */}
+        {/* Text container: title, date and description */}
         <div style={{ textAlign: 'left' }}>
-          <h5 style={{ margin: '0' }}>
+          <h5 style={{ margin: 0 }}>
             <a
               href={items.Link}
-              style={{ color: 'white', textDecoration: 'none' }}
+              style={{ color: 'white' }}
               target="_blank"
               rel="noopener noreferrer"
             >
