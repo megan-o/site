@@ -1,27 +1,42 @@
-[![pages-build-deployment](https://github.com/megan-o/site/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/megan-o/site/actions/workflows/pages/pages-build-deployment)
+# Megan O’Brien — Personal Portfolio
 
-# My Personal Site
+A React portfolio for consumer research, speaking, and industry community leadership.
 
-Hi everyone!
+Live site: https://megan-o.github.io/site/
 
-This is my personal site built using react and react bootstrap, I built this site entirely on GitHub Codespaces by forking the codespaces-react repo. I also used Google Sheets as an api to update the site. The site is hosted on GitHub Pages at <https://megan-o.github.io/site/>.
+## Local development
 
+```sh
+npm ci
+cp .env.example .env.local
+npm start
+```
 
-#### Usual React Stuff...
+The verified portfolio snapshot in `src/data/portfolio.json` renders immediately. Optionally supply the existing Google Sheets API browser key in `.env.local` to refresh entries from the live database. The site keeps the snapshot if the request fails or times out.
 
-### `npm start`
+## Edit the portfolio
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) in the built-in Simple Browser (`Cmd/Ctrl + Shift + P > Simple Browser: Show`) to view your running application.
+The existing Google Sheet `mo_whats_new`, tab `Sheet1`, remains the editing source:
+https://docs.google.com/spreadsheets/d/10lIiQ8yqJFay3e6MR_6BkXJsb7Ix9W2LWKg-yuvQMQs/edit
 
-The page will reload automatically when you make changes.\
-You may also see any lint errors in the console.
+Keep the first row as headers: `Date`, `Name`, `Link`, `Description`, `Img`, `Category`, `Partner`, `Featured`.
 
-### `npm run deploy`
+- Category: `Research`, `Speaking`, or `Recognition`.
+- Featured: `Yes` to prioritize an entry, `No` otherwise.
+- Date: a Sheets date, `YYYY-MM`, or `YYYY` when only the month or year is known.
+- Link: the public source, using HTTPS.
+- Img: retained for compatibility; the new layout uses typographic cards.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+The site reads rows 1–100 and provides category filters and an expand button. Refresh the snapshot after substantial database edits so it remains useful if the live feed is unavailable.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Biography: `src/Components/About.js`. Career summary: `src/Components/Resume.js`. Resume PDF: `public/Megan-OBrien-Resume.pdf`. The PDF is the current user-supplied September 2026 file. Portfolio source provenance is recorded in `SOURCES.md`.
 
+## Verify and publish
+
+```sh
+CI=true npm test -- --watchAll=false
+npm run build
+npm run deploy
+```
+
+Deployment publishes the production build to `gh-pages`; changing `main` alone does not publish the website. Configure the optional API key locally before building. Keep Google Cloud restrictions on the existing browser key.
