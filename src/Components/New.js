@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import MyCard from './MyCard';
 import fallback from '../data/portfolio.json';
-import { normalizeRows } from '../portfolioUtils';
+import { normalizeRows, sortPortfolio } from '../portfolioUtils';
 
 export default function Portfolio() {
   const [entries, setEntries] = useState(fallback);
@@ -20,7 +20,7 @@ export default function Portfolio() {
   return (
     <div className="data-list">
       <br />
-      {entries.map(item => (
+      {sortPortfolio(entries).map(item => (
         <div key={item.Link}>
           <MyCard items={item} />
           <br />

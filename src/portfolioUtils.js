@@ -32,5 +32,5 @@ export function normalizeRows(values) {
 }
 
 export function sortPortfolio(entries) {
-  return [...entries].sort((a, b) => Number(b.Featured === 'Yes') - Number(a.Featured === 'Yes') || Number(b.Category === 'Research') - Number(a.Category === 'Research') || (parseDate(b.Date)?.getTime() || 0) - (parseDate(a.Date)?.getTime() || 0));
+  return [...entries].sort((a, b) => (parseDate(b.Date)?.getTime() || 0) - (parseDate(a.Date)?.getTime() || 0));
 }

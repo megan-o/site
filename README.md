@@ -27,7 +27,7 @@ Keep the first row as headers: `Date`, `Name`, `Link`, `Description`, `Img`, `Ca
 - Link: the public source, using HTTPS.
 - Img: icon displayed beside each entry in the original list layout.
 
-The site reads rows 1–100 in database order, using the original tabbed layout. Refresh the snapshot after substantial database edits so it remains useful if the live feed is unavailable.
+The site reads rows 1–100 in newest-first chronological order, using the original tabbed layout. Refresh the snapshot after substantial database edits so it remains useful if the live feed is unavailable.
 
 Biography: `src/Components/About.js`. Embedded résumé: `src/Components/Resume.js`. Resume PDF: `public/Megan-OBrien-Resume.pdf`. The PDF is the current user-supplied September 2026 file. Portfolio source provenance is recorded in `SOURCES.md`.
 
