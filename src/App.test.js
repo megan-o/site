@@ -8,28 +8,23 @@ beforeEach(() => {
 });
 afterEach(() => jest.restoreAllMocks());
 
-test('keeps published work visible when Google Sheets fails and filters categories', async () => {
+test('restores original tabs and keeps all updated work visible offline', async () => {
   render(<App />);
   await act(async () => {});
+  expect(screen.getByRole('tab', { name: "What's New" })).toHaveAttribute('aria-selected', 'true');
   expect(screen.getByRole('link', { name: 'The Role of Social in Movie Discovery' })).toBeInTheDocument();
-  expect(document.querySelectorAll('.work-card')).toHaveLength(6);
-  fireEvent.click(screen.getByRole('button', { name: 'Explore all 14 entries' }));
-  expect(document.querySelectorAll('.work-card')).toHaveLength(14);
-  fireEvent.click(screen.getByRole('button', { name: 'Research', exact: true }));
-  expect(document.querySelectorAll('.work-card')).toHaveLength(5);
-  expect(screen.queryByRole('link', { name: 'Academic–Industry Nexus' })).not.toBeInTheDocument();
-  fireEvent.click(screen.getByRole('button', { name: 'Speaking', exact: true }));
-  expect(screen.getByRole('link', { name: 'Academic–Industry Nexus' })).toBeInTheDocument();
-  expect(document.querySelectorAll('.work-card')).toHaveLength(6);
-  fireEvent.click(screen.getByRole('button', { name: 'Recognition', exact: true }));
-  expect(document.querySelectorAll('.work-card')).toHaveLength(3);
+  expect(document.querySelectorAll('.list-group-item')).toHaveLength(14);
+  fireEvent.click(screen.getByRole('tab', { name: 'Resume' }));
+  expect(screen.getByTitle('Megan O’Brien Resume')).toHaveAttribute('src', '/Megan-OBrien-Resume.pdf');
+  fireEvent.click(screen.getByRole('tab', { name: 'About' }));
+  expect(screen.getByText(/Currently Associate Director/)).toBeInTheDocument();
 });
 
-test('loads new entries from the live spreadsheet without losing category controls', async () => {
+test('loads new entries from the live spreadsheet in the original list', async () => {
   global.fetch.mockResolvedValue({ ok: true, json: async () => ({ values: [['Name', 'Link', 'Description', 'Category', 'Date'], ['New study', 'https://example.com/study', 'A new publication.', 'Research', '09/30/2026']] }) });
   render(<App />);
   await waitFor(() => expect(screen.getByRole('link', { name: 'New study' })).toBeInTheDocument());
-  expect(document.querySelectorAll('.work-card')).toHaveLength(1);
+  expect(document.querySelectorAll('.list-group-item')).toHaveLength(1);
 });
 
 test('rejects malformed feeds and unsafe links and preserves partial dates', () => {
@@ -39,13 +34,4 @@ test('rejects malformed feeds and unsafe links and preserves partial dates', () 
   expect(formatDate('2026')).toBe('2026');
   expect(formatDate('2024-01')).toBe('Jan 2024');
   expect(formatDate('03/03/2026')).toBe('Mar 2026');
-});
-
-test('mobile navigation is keyboard accessible and closes after a selection', () => {
-  render(<App />);
-  fireEvent.click(screen.getByRole('button', { name: 'Open navigation' }));
-  expect(screen.getByRole('button', { name: 'Close navigation' })).toHaveAttribute('aria-expanded', 'true');
-  fireEvent.click(screen.getByRole('link', { name: 'About', exact: true }));
-  expect(screen.getByRole('button', { name: 'Open navigation' })).toHaveAttribute('aria-expanded', 'false');
-  expect(screen.getByRole('link', { name: /View full resume/ })).toHaveAttribute('href', '/Megan-OBrien-Resume.pdf');
 });

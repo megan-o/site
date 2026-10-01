@@ -1,12 +1,10 @@
 import { useEffect, useState } from 'react';
 import MyCard from './MyCard';
 import fallback from '../data/portfolio.json';
-import { normalizeRows, sortPortfolio } from '../portfolioUtils';
+import { normalizeRows } from '../portfolioUtils';
 
 export default function Portfolio() {
   const [entries, setEntries] = useState(fallback);
-  const [filter, setFilter] = useState('All');
-  const [expanded, setExpanded] = useState(false);
   useEffect(() => {
     const key = process.env.REACT_APP_GOOGLE_MAPS_API_KEY;
     if (!key) return;
@@ -19,16 +17,15 @@ export default function Portfolio() {
       .finally(() => clearTimeout(timeout));
     return () => { clearTimeout(timeout); controller.abort(); };
   }, []);
-  const filtered = sortPortfolio(entries).filter(entry => filter === 'All' || entry.Category === filter);
-  const visible = expanded ? filtered : filtered.slice(0, 6);
   return (
-    <section className="work-section section-wrap" id="work" aria-labelledby="work-title">
-      <div className="section-heading"><div><p className="eyebrow">01 / SELECTED WORK</p><h2 id="work-title">Research. Conversation.<br /><em>A little perspective.</em></h2></div><p>A selection of published research, industry conversations, and recognition.</p></div>
-      <div className="work-filters" role="group" aria-label="Filter selected work">{['All', 'Research', 'Speaking', 'Recognition'].map(label => <button key={label} className={filter === label ? 'filter-button active' : 'filter-button'} aria-pressed={filter === label} onClick={() => { setFilter(label); setExpanded(false); }}>{label}</button>)}</div>
-      <div className="work-grid">{visible.map(entry => <MyCard key={entry.Link} items={entry} />)}</div>
-      <p className="sr-only" role="status">Showing {visible.length} of {filtered.length} {filter === 'All' ? 'portfolio' : filter.toLowerCase()} entries.</p>
-      {filtered.length > 6 && <div className="show-more-wrap"><button className="button button-outline" aria-expanded={expanded} onClick={() => setExpanded(!expanded)}>{expanded ? 'Show featured work' : 'Explore all ' + filtered.length + ' entries'} <span aria-hidden="true">{expanded ? '−' : '+'}</span></button></div>}
-      {filtered.length === 0 && <p>No entries in this category yet. Explore the other categories above.</p>}
-    </section>
+    <div className="data-list">
+      <br />
+      {entries.map(item => (
+        <div key={item.Link}>
+          <MyCard items={item} />
+          <br />
+        </div>
+      ))}
+    </div>
   );
 }

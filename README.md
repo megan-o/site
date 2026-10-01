@@ -22,14 +22,14 @@ https://docs.google.com/spreadsheets/d/10lIiQ8yqJFay3e6MR_6BkXJsb7Ix9W2LWKg-yuvQ
 Keep the first row as headers: `Date`, `Name`, `Link`, `Description`, `Img`, `Category`, `Partner`, `Featured`.
 
 - Category: `Research`, `Speaking`, or `Recognition`.
-- Featured: `Yes` to prioritize an entry, `No` otherwise.
+- Featured: retained as database metadata.
 - Date: a Sheets date, `YYYY-MM`, or `YYYY` when only the month or year is known.
 - Link: the public source, using HTTPS.
-- Img: retained for compatibility; the new layout uses typographic cards.
+- Img: icon displayed beside each entry in the original list layout.
 
-The site reads rows 1–100 and provides category filters and an expand button. Refresh the snapshot after substantial database edits so it remains useful if the live feed is unavailable.
+The site reads rows 1–100 in database order, using the original tabbed layout. Refresh the snapshot after substantial database edits so it remains useful if the live feed is unavailable.
 
-Biography: `src/Components/About.js`. Career summary: `src/Components/Resume.js`. Resume PDF: `public/Megan-OBrien-Resume.pdf`. The PDF is the current user-supplied September 2026 file. Portfolio source provenance is recorded in `SOURCES.md`.
+Biography: `src/Components/About.js`. Embedded résumé: `src/Components/Resume.js`. Resume PDF: `public/Megan-OBrien-Resume.pdf`. The PDF is the current user-supplied September 2026 file. Portfolio source provenance is recorded in `SOURCES.md`.
 
 ## Verify and publish
 
